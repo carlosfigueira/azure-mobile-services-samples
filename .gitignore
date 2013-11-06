@@ -1,3 +1,7 @@
+# NuGet packages
+packages/
+NuGet.exe
+
 # Build and Object Folders
 bin/
 obj/

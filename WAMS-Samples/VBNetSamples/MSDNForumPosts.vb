@@ -49,7 +49,11 @@ Public Class Post_d9dd10a9_3f23_4990_892e_bc73b002ea69
         Dim Letter = "f"
 
         Dim retrieved = Await table.Where(Function(p) _
-                                              p.Text = "first" And p.Number = 1).ToListAsync()
+            p.Text = "first" And p.Number = 1).ToListAsync()
+        page.AddToDebug("Retrieved: [{0}]", String.Join(", ", retrieved))
+
+        retrieved = Await table.Where(Function(p) _
+            p.Text.StartsWith("s")).ToListAsync()
         page.AddToDebug("Retrieved: [{0}]", String.Join(", ", retrieved))
     End Function
 

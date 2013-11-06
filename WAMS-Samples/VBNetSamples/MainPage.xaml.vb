@@ -28,7 +28,7 @@ Public NotInheritable Class MainPage
         End If
     End Sub
 
-    Private Sub btnStart_Click(sender As Object, e As RoutedEventArgs)
+    Private Async Sub btnStart_Click(sender As Object, e As RoutedEventArgs)
         Try
             If MobileService Is Nothing Then
                 MobileService = New MobileServiceClient(Me.txtAppUrl.Text, Me.txtAppKey.Text)
@@ -37,7 +37,8 @@ Public NotInheritable Class MainPage
                 localSettings.Values(AppKeySetting) = Me.txtAppKey.Text
             End If
 
-            Post_96bdf254_2738_43aa_b146_3d95d84f599e.Run(Me, MobileService)
+            'Await Post_96bdf254_2738_43aa_b146_3d95d84f599e.Run(Me, MobileService)
+            Await Post_d9dd10a9_3f23_4990_892e_bc73b002ea69.Run(Me, MobileService)
         Catch ex As Exception
             AddToDebug("Error: {0}", ex)
         End Try
